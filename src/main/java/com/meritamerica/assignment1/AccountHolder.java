@@ -71,10 +71,15 @@ public class AccountHolder {
 	
 	@Override
 	public String toString() {
-		return "Name: " + firstName + middleName + lastName \n
-				+ "SSN: " + ssn\n
-				+"Checking Account Balance: " + CheckingAccount.getBalance();\n
-				+""
+		return ("Name: " + firstName + middleName + lastName + "\n" +
+				"SSN: " + ssn + "\n" +
+				"Checking Account Balance: " + CheckingAccount.getBalance() + "\n" +
+				"Checking Account Interest Rate: " + CheckingAccount.getInterestRate() + "\n" +
+				"Checking Account Balance in 3 Years: " + //TODO: put something here
+				"Savings Account Balance: " + SavingsAccount.getBalance() + "\n" +
+				"Savings Account Interest Rate: " + SavingsAccount.getInterestRate() + "\n" +
+				"Savings Account Balance in 3 Years: " //TODO: put something here
+				);
 	}
 	
 }
