@@ -1,17 +1,21 @@
 package com.meritamerica.assignment1;
 
 public class AccountHolder {
-	private String firstName;
-	private String middleName;
-	private String lastName;
-	private String ssn;
+	private String firstName = "";
+	private String middleName = "";
+	private String lastName = "";
+	private String ssn = "";
 	private double checkingAccountOpeningBalance;
 	private double savingsAccountOpeningBalance;
-	CheckingAccount checking = new CheckingAccount(checkingAccountOpeningBalance);
-	SavingsAccount savings = new SavingsAccount(savingsAccountOpeningBalance);
+	CheckingAccount checking;
+	SavingsAccount savings;
 	
 	
-	public AccountHolder() {	
+	public AccountHolder(double checkingAccountOpeningBalance, double savingsAccountOpeningBalance) {	
+		this.checkingAccountOpeningBalance = checkingAccountOpeningBalance;
+		this.savingsAccountOpeningBalance = savingsAccountOpeningBalance;
+		checking = new CheckingAccount(checkingAccountOpeningBalance);
+		savings = new SavingsAccount(savingsAccountOpeningBalance); 
 	}
 	
 	public AccountHolder(String firstName, String middleName, String lastName, String ssn, 
@@ -78,10 +82,10 @@ public class AccountHolder {
 				"SSN: " + ssn + "\n" +
 				"Checking Account Balance: " + checking.getBalance() + "\n" +
 				"Checking Account Interest Rate: " + checking.getInterestRate() + "\n" +
-				"Checking Account Balance in 3 Years: " + checking.futureValue(3) + "\n"
+				"Checking Account Balance in 3 Years: " + checking.futureValue(3) + "\n" +
 				"Savings Account Balance: " + savings.getBalance() + "\n" +
 				"Savings Account Interest Rate: " + savings.getInterestRate() + "\n" +
-				"Savings Account Balance in 3 Years: " + savings.futureValue(3);
+				"Savings Account Balance in 3 Years: " + savings.futureValue(3)
 				);
 	}
 	
