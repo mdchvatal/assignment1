@@ -8,6 +8,7 @@ public class AccountHolder {
 	private double checkingAccountOpeningBalance;
 	private double savingsAccountOpeningBalance;
 	CheckingAccount checking = new CheckingAccount(checkingAccountOpeningBalance);
+	SavingsAccount savings = new SavingsAccount(savingsAccountOpeningBalance);
 	
 	
 	public AccountHolder() {	
@@ -77,10 +78,10 @@ public class AccountHolder {
 				"SSN: " + ssn + "\n" +
 				"Checking Account Balance: " + checking.getBalance() + "\n" +
 				"Checking Account Interest Rate: " + checking.getInterestRate() + "\n" +
-				"Checking Account Balance in 3 Years: " + //TODO: put something here
-				"Savings Account Balance: " + SavingsAccount.getBalance() + "\n" +
-				"Savings Account Interest Rate: " + SavingsAccount.getInterestRate() + "\n" +
-				"Savings Account Balance in 3 Years: " //TODO: put something here
+				"Checking Account Balance in 3 Years: " + checking.futureValue(3) + "\n"
+				"Savings Account Balance: " + savings.getBalance() + "\n" +
+				"Savings Account Interest Rate: " + savings.getInterestRate() + "\n" +
+				"Savings Account Balance in 3 Years: " + savings.futureValue(3);
 				);
 	}
 	
