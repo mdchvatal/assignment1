@@ -7,15 +7,15 @@ public class AccountHolder {
 	private String ssn = "";
 	private double checkingAccountOpeningBalance;
 	private double savingsAccountOpeningBalance;
-	CheckingAccount checking;
-	SavingsAccount savings;
+	CheckingAccount checkingAccount;
+	SavingsAccount savingsAccount;
 	
 	
 	public AccountHolder(double checkingAccountOpeningBalance, double savingsAccountOpeningBalance) {	
 		this.checkingAccountOpeningBalance = checkingAccountOpeningBalance;
 		this.savingsAccountOpeningBalance = savingsAccountOpeningBalance;
-		checking = new CheckingAccount(checkingAccountOpeningBalance);
-		savings = new SavingsAccount(savingsAccountOpeningBalance); 
+		checkingAccount = new CheckingAccount(checkingAccountOpeningBalance);
+		savingsAccount = new SavingsAccount(savingsAccountOpeningBalance); 
 	}
 	
 	public AccountHolder(String firstName, String middleName, String lastName, String ssn, 
@@ -26,6 +26,8 @@ public class AccountHolder {
 		this.ssn = ssn;
 		this.checkingAccountOpeningBalance = checkingAccountOpeningBalance;
 		this.savingsAccountOpeningBalance = savingsAccountOpeningBalance;
+		checkingAccount = new CheckingAccount(checkingAccountOpeningBalance);
+		savingsAccount = new SavingsAccount(savingsAccountOpeningBalance);
 	}
 
 	public String getFirstName() {
@@ -60,32 +62,24 @@ public class AccountHolder {
 		this.ssn = ssn;
 	}
 
-	public double getCheckingAccountOpeningBalance() {
-		return checkingAccountOpeningBalance;
+	public CheckingAccount getCheckingAccount() {
+		return checkingAccount;
 	}
 
-	public void setCheckingAccountOpeningBalance(double checkingAccountOpeningBalance) {
-		this.checkingAccountOpeningBalance = checkingAccountOpeningBalance;
-	}
-
-	public double getSavingsAccountOpeningBalance() {
-		return savingsAccountOpeningBalance;
-	}
-
-	public void setSavingsAccountOpeningBalance(double savingsAccountOpeningBalance) {
-		this.savingsAccountOpeningBalance = savingsAccountOpeningBalance;
+	public SavingsAccount getSavingsAccount() {
+		return savingsAccount;
 	}
 	
 	@Override
 	public String toString() {
 		return ("Name: " + firstName + middleName + lastName + "\n" +
 				"SSN: " + ssn + "\n" +
-				"Checking Account Balance: " + checking.getBalance() + "\n" +
-				"Checking Account Interest Rate: " + checking.getInterestRate() + "\n" +
-				"Checking Account Balance in 3 Years: " + checking.futureValue(3) + "\n" +
-				"Savings Account Balance: " + savings.getBalance() + "\n" +
-				"Savings Account Interest Rate: " + savings.getInterestRate() + "\n" +
-				"Savings Account Balance in 3 Years: " + savings.futureValue(3)
+				"Checking Account Balance: $" + getCheckingAccount().getBalance() + "\n" +
+				"Checking Account Interest Rate: " + getCheckingAccount().getInterestRate() + "\n" +
+				"Checking Account Balance in 3 Years: $" + getCheckingAccount().futureValue(3) + "\n" +
+				"Savings Account Balance: $" + getSavingsAccount().getBalance() + "\n" +
+				"Savings Account Interest Rate: " + getSavingsAccount().getInterestRate() + "\n" +
+				"Savings Account Balance in 3 Years: $" + getSavingsAccount().futureValue(3)
 				);
 	}
 	

@@ -44,7 +44,7 @@ public class SavingsAccount {
 	public String toString() {
 		return "Savings Account Balance: $" + balance + "\n" +
 				"Savings Account Interest Rate: " + interestRate + "\n" +
-				"Savings Acount Balance in 3 Years: $" + futureValue;
+				"Savings Acount Balance in 3 Years: $" + futureValue(3);
 	}
 	
 }

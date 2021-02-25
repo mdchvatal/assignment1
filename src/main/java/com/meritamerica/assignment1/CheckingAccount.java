@@ -18,7 +18,7 @@ class CheckingAccount {
 		return interestRate;
 	}
 	
-	boolean withdrawl(double amount) {
+	boolean withdraw(double amount) {
 		if (amount <= balance && amount > 0) {
 			balance -= amount;
 			return true;
@@ -35,14 +35,15 @@ class CheckingAccount {
 		
 	}
 	
-	double futureValue(int years) {
-		futureValue = (getBalance() * Math.pow((1+interestRate), years));
+	double futureValue(double years) {
+		double futureValue = 1.0;
+		futureValue = (balance * Math.pow((1+interestRate), years));
 		return futureValue;
 	}
 	
 	public String toString() {
 		return "Checking Account Balance: $" + balance + "\n" +
 				"Checking Account Interest Rate: " + interestRate + "\n" +
-				"Checking Acount Balance in 3 Years: $" + futureValue;
+				"Checking Acount Balance in 3 Years: $" + futureValue(3);
 	}
 }
